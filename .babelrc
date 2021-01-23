@@ -1,10 +1,24 @@
 {
   "presets": [
-    [
-      "@babel/preset-env"
-    ]
+      [   
+          // 预设，相当于一堆 plugin 集合，单个 plugin 只能转换一种
+          "@babel/preset-env",
+          {
+              "useBuiltIns": "usage", // 按需引入
+              "corejs": 3
+          }
+      ]
   ],
   "plugins": [
-
+      [
+          "@babel/plugin-transform-runtime",
+          {
+              "absoluteRuntime": false,
+              "corejs": 3,
+              "helpers": true,
+              "regenerator": true,
+              "useESModules": false
+          }
+      ]
   ]
 }
